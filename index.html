@@ -1,20 +1,307 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ADV RESEARCH</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 
 <body>
-    <h1>ADV RESEARCH</h1>
 
-    <h2>Mathematics • Physics • Research</h2>
+<header>
+    <div class="logo">ADV RESEARCH</div>
 
-    <p>
-        "God does not play dice with the universe."
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('mathematics')">Mathematics</button>
+        <button onclick="showPage('physics')">Physics</button>
+        <button onclick="showPage('research')">Research</button>
+    </nav>
+</header>
+
+
+<main>
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <h1>ADV RESEARCH</h1>
+
+        <p class="subtitle">
+            Mathematics • Physics • Scientific Research
+        </p>
+
+        <div class="quote">
+            "God does not play dice with the universe."
+            <span>— Albert Einstein</span>
+        </div>
+
+        <div class="researcher">
+            <h2>Yassine Bechir Dallel</h2>
+            <p>Researcher & Programmer</p>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">Research Fields</h2>
+
+    <div class="cards">
+
+        <div class="card" onclick="showPage('mathematics')">
+            <div class="icon">∑</div>
+            <h2>Mathematics</h2>
+            <p>
+                Calculus, analysis, algebra, geometry,
+                complex analysis and mathematical physics.
+            </p>
+        </div>
+
+        <div class="card" onclick="showPage('physics')">
+            <div class="icon">⚛</div>
+            <h2>Physics</h2>
+            <p>
+                Classical mechanics, quantum mechanics,
+                relativity and theoretical physics.
+            </p>
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">Featured Research</h2>
+
+    <div id="featuredResearch"></div>
+
+</section>
+
+
+
+<!-- MATHEMATICS -->
+
+<section id="mathematics" class="page">
+
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
+
+    <h1>Mathematics</h1>
+
+    <p class="intro">
+        Mathematical research and mathematical tools.
     </p>
 
-    <h3>Researcher & Programmer</h3>
+    <div class="topic-grid">
 
-    <p>Yassine Bechir Dallel</p>
+        <div class="topic">
+            <h2>Calculus</h2>
+            <p>Limits, derivatives, integrals and series.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Real Analysis</h2>
+            <p>Sequences, functions, continuity and convergence.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Complex Analysis</h2>
+            <p>Complex functions, residues and contour integration.</p>
+        </div>
+
+        <div class="topic">
+            <h2>Linear Algebra</h2>
+            <p>Vector spaces, matrices, eigenvalues and operators.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PHYSICS -->
+
+<section id="physics" class="page">
+
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
+
+    <h1>Physics</h1>
+
+    <p class="intro">
+        Theoretical and mathematical physics.
+    </p>
+
+    <div class="topic-grid">
+
+        <div class="topic">
+            <h2>Classical Mechanics</h2>
+            <p>
+                Newtonian mechanics, Lagrangian mechanics
+                and Hamiltonian mechanics.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Quantum Mechanics</h2>
+            <p>
+                Schrödinger equation, operators,
+                Hilbert spaces and quantum states.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Relativity</h2>
+            <p>
+                Special relativity, spacetime and
+                relativistic dynamics.
+            </p>
+        </div>
+
+        <div class="topic">
+            <h2>Mathematical Physics</h2>
+            <p>
+                Differential equations, Fourier analysis
+                and mathematical structures used in physics.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- RESEARCH -->
+
+<section id="research" class="page">
+
+    <button class="back-button" onclick="showPage('home')">
+        ← Back
+    </button>
+
+    <h1>Research Laboratory</h1>
+
+    <p class="intro">
+        Write, save and manage your research.
+    </p>
+
+
+    <div class="editor">
+
+        <label>Research title</label>
+
+        <input
+            id="researchTitle"
+            type="text"
+            placeholder="Enter research title..."
+        >
+
+
+        <label>Research field</label>
+
+        <select id="researchField">
+
+            <option>Mathematics</option>
+            <option>Physics</option>
+            <option>Classical Mechanics</option>
+            <option>Quantum Mechanics</option>
+            <option>Complex Analysis</option>
+            <option>Other</option>
+
+        </select>
+
+
+        <label>Research content</label>
+
+        <textarea
+            id="researchContent"
+            placeholder="Write your research here...
+
+You can use mathematical notation.
+
+Example:
+
+$$
+\frac{d}{dt}
+\left(
+\frac{\partial L}{\partial \dot q_i}
+\right)
+-
+\frac{\partial L}{\partial q_i}
+=0
+$$
+
+For inline mathematics use $E=mc^2$."
+        ></textarea>
+
+
+        <div class="editor-buttons">
+
+            <button class="save-button" onclick="saveResearch()">
+                💾 Save Research
+            </button>
+
+            <button onclick="clearEditor()">
+                Clear
+            </button>
+
+            <button onclick="showPage('home')">
+                ← Back
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">Saved Research</h2>
+
+    <div id="researchList"></div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        ADV RESEARCH
+    </p>
+
+    <p>
+        Researcher & Programmer:
+        Yassine Bechir Dallel
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
+```
